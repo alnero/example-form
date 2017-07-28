@@ -19,7 +19,7 @@ app.use(koaBody())
 
 router.get("/", async (ctx, next) => {
   let formHtml = await new Promise((resolve, reject) => {
-    fs.readFile("form.html", (err, data) => {
+    fs.readFile("templates/form.html", (err, data) => {
       if(err) reject(err)
       resolve(data)
     })
