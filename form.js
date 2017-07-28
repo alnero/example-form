@@ -18,7 +18,16 @@ app.use(koaBody())
 
 
 router.get("/", async (ctx, next) => {
-  ctx.response.redirect("form.html")
+  let formHtml = await new Promise((resolve, reject) => {
+    fs.readFile("form.html", (err, data) => {
+      if(err) reject(err)
+      resolve(data)
+    })
+  })
+
+  ctx.set('Content-Type', 'text/html')
+  ctx.response.body = formHtml
+
   await next()
 })
 
