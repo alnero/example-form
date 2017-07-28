@@ -1,0 +1,31 @@
+{
+  "name": "example-form",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alnero/example-form"
+  },
+  "description": "Simple submit form (html, css, koa).",
+  "main": "form.js",
+  "scripts": {
+    "start": "node form.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "submit",
+    "form",
+    "html",
+    "css",
+    "koa",
+    "javaScript"
+  ],
+  "author": "Alexey Nerodenko <darestream@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "koa": "^2.3.0",
+    "koa-body": "^2.3.0",
+    "koa-logger": "^3.0.1",
+    "koa-router": "^7.2.1",
+    "koa-static": "^4.0.1"
+  }
+}

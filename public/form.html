@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Form</title>
+
+  <meta name="viewport" content="width=device-width" />
+  <link rel="stylesheet" type="text/css" href="styles/styles.css" />
+</head>
+
+<body>
+  <div id="form_div">
+    <form action="/" method="post">
+      <header><h2>Form</h2></header>
+
+      <label>Name</label>
+      <input name="name" placeholder="Name" type="text" required>
+
+      <label>Phone</label>
+      <input name="phone" placeholder="+79001234567" type="text" required>
+
+      <label>Message</label>
+      <textarea name="message" placeholder="Message" rows="5"></textarea>
+
+      <div id="checkbox_div">
+        <label for="subscribe_id">Subscribe</label>
+        <input id="subscribe_id" name="subscribe" value="true" type="checkbox">
+      </div>
+
+      <label>Select option</label>
+      <select name="options"> 
+        <option value="One">One</option>
+        <option value="Two">Two</option>
+        <option value="Three">Three</option>
+        <option value="Four">Four</option>
+        <option value="Five">Five</option>
+        <option value="Six">Six</option>
+      </select>
+      
+      <input id="submit" type="submit" value="Send">
+    </form>
+  </div>
+</body>
+</html>
