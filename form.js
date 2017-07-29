@@ -1,4 +1,5 @@
-let fs = require('fs')
+let fs = require("fs")
+let util = require("util")
 
 let Koa = require("koa")
 let logger = require("koa-logger")
@@ -6,7 +7,8 @@ let KoaRouter = require("koa-router")
 let koaStatic = require("koa-static")
 let koaBody = require("koa-body")
 
-let file = "db.json"
+let dbFile = "db.json"
+let readFileAsync = util.promisify(fs.readFile)
 
 let app = new Koa()
 
@@ -18,14 +20,9 @@ app.use(koaBody())
 
 
 router.get("/", async (ctx, next) => {
-  let formHtml = await new Promise((resolve, reject) => {
-    fs.readFile("templates/form.html", (err, data) => {
-      if(err) reject(err)
-      resolve(data)
-    })
-  })
+  let formHtml = await readFileAsync("./templates/form.html")
 
-  ctx.set('Content-Type', 'text/html')
+  ctx.set("Content-Type", "text/html")
   ctx.response.body = formHtml
 
   await next()
@@ -33,17 +30,12 @@ router.get("/", async (ctx, next) => {
 
 router.post("/", async (ctx, next) => {
   let formData = ctx.request.body
-  let fileData = await new Promise((resolve, reject) => {
-    fs.readFile(file, (err, data) => {
-      if(err) reject(err)
-      resolve(data)
-    })
-  })
-
+  let fileData = await readFileAsync(dbFile)
+  
   let db = JSON.parse(fileData)
   db.push(formData)
 
-  fs.writeFile(file, JSON.stringify(db), (err) => {
+  fs.writeFile(dbFile, JSON.stringify(db), (err) => {
     if(err) console.error(err)
   })
 
