@@ -8,6 +8,10 @@ let koaStatic = require("koa-static")
 let koaBody = require("koa-body")
 
 let dbFile = "db.json"
+fs.writeFile(dbFile, "[]", function(err) {
+  if(err) console.error(err)
+}) 
+
 let readFileAsync = util.promisify(fs.readFile)
 
 let app = new Koa()
