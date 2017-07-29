@@ -6,12 +6,12 @@
     "url": "https://github.com/alnero/example-form"
   },
   "description": "Simple submit form (html, css, koa).",
-  "main": "form.js",
+  "main": "server.js",
   "engines": {
     "node": ">=8.2.1"
   },
   "scripts": {
-    "start": "node form.js",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
